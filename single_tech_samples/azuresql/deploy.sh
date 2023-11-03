@@ -36,6 +36,14 @@ set -o pipefail
 # RESOURCE_GROUP_NAME - resource group name
 # RESOURCE_GROUP_LOCATION - resource group location (ei. australiaeast)
 
+export GITHUB_REPO_URL="https://github.com/gaganrkapoor/modern-data-warehouse-dataops"
+export GITHUB_PAT_TOKEN="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"
+export DEPLOYMENT_ID='0435205055'
+export BRANCH_NAME='master'
+export AZURESQL_SERVER_PASSWORD='Sydney123'
+export RESOURCE_GROUP_NAME='rg0435'
+export RESOURCE_GROUP_LOCATION='australiaeast'
+
 . ./scripts/common.sh
 . ./scripts/init_environment.sh
 
