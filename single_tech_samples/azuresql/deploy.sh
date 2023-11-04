@@ -37,13 +37,15 @@ set -o pipefail
 # RESOURCE_GROUP_LOCATION - resource group location (ei. australiaeast)
 
 export GITHUB_REPO_URL="https://github.com/gaganrkapoor/modern-data-warehouse-dataops"
-export GITHUB_PAT_TOKEN="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"
+export GITHUB_PAT_TOKEN="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"
 export DEPLOYMENT_ID='0435205055'
 export BRANCH_NAME='master'
-export AZURESQL_SERVER_PASSWORD='Sydney123'
-export RESOURCE_GROUP_NAME='rg0435'
+export AZURESQL_SERVER_PASSWORD='Sydney@123'
+export RESOURCE_GROUP_NAME='mdw-dataops-azuresq-rg0435'
 export RESOURCE_GROUP_LOCATION='australiaeast'
-
+#export AZURE_SUBSCRIPTION_ID=d3c00b3e-62a3-4d55-bed2-a0c29891af20
+export MSYS_NO_PATHCONV=1
+#az_sub_name="Visual Studio Enterprise"
 . ./scripts/common.sh
 . ./scripts/init_environment.sh
 
@@ -107,8 +109,8 @@ export GITHUB_SERVICE_CONNECTION_ID=$(az devops service-endpoint github create \
 
 ./scripts/deploy_azure_pipelines_01_validate_pr.sh
 ./scripts/deploy_azure_pipelines_02_build.sh
-./scripts/deploy_azure_pipelines_03_simple_multi_stage.sh
-./scripts/deploy_azure_pipelines_04_multi_stage_predeploy_test.sh
+#./scripts/deploy_azure_pipelines_03_simple_multi_stage.sh
+#./scripts/deploy_azure_pipelines_04_multi_stage_predeploy_test.sh
 
 echo "Completed deployment ${DEPLOYMENT_ID}"
 
