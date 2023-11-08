@@ -34,7 +34,7 @@
             "type": "string"
         },
         "sqldb_sku": {
-            "defaultValue": "S2",
+            "defaultValue": "Basic",
             "type": "string"
         },
         "deployment_id": {
@@ -83,7 +83,7 @@
             "type": "Microsoft.Sql/servers/databases",
             "sku": {
                 "name": "[parameters('sqldb_sku')]",
-                "tier": "Standard"
+                "tier": "Basic"
             },
             "kind": "v12.0,user",
             "name": "[concat(parameters('azuresql_srvr_name'), '/', parameters('azuresql_db_name'))]",

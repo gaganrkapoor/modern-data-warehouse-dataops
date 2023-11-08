@@ -52,7 +52,7 @@ az group create --name "$RESOURCE_GROUP_NAME" --location "$RESOURCE_GROUP_LOCATI
 
 # By default, set all KeyVault permission to deployer
 # Retrieve KeyVault User Id
-kv_owner_object_id=$(az ad signed-in-user show --output json | jq -r '.objectId')
+kv_owner_object_id=$(az ad signed-in-user show --output json | jq -r '.id')
 
 # Deploy arm template
 echo "Deploying resources into $RESOURCE_GROUP_NAME"
@@ -68,6 +68,7 @@ if [[ -z $arm_output ]]; then
     exit 1
 fi
 
+echo "--==================== Deploying resources Completed ========================="
 #########################
 # CONFIGURE DATA LAKE
 

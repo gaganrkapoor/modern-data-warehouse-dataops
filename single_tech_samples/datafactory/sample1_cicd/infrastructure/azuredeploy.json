@@ -17,45 +17,45 @@
         },
         "deployment_id": {
             "defaultValue": "[substring(uniqueString(resourceGroup().id), 0, 5)]",
-            "type": "String"
+            "type": "string"
         },
         "keyvault_name": {
             "defaultValue": "[concat(parameters('deploy_namespace'), 'kv', parameters('environment'), parameters('deployment_id'))]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Key Vault Name"
             }
         },
         "keyvault_owner_object_id": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Active Directory ObjectId to be granted full rights to KV"
             }
         },
         "datalake_storage_account_name": {
             "defaultValue": "[concat(parameters('deploy_namespace'), 'dlstor', parameters('environment'), parameters('deployment_id'))]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Storage account - ADLA Gen2"
             }
         },
         "datalake_service_principal_storage_name": {
             "defaultValue": "[concat(parameters('deploy_namespace'), 'spdlstor', parameters('environment'), parameters('deployment_id'))]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Service Principal to be granted access to Storage Account - ADLA Gen2"
             }
         },
         "fileshare_storage_account_name": {
             "defaultValue": "[concat(parameters('deploy_namespace'), 'fsstor', parameters('environment'), parameters('deployment_id'))]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Storage account"
             }
         },
         "fileshare_service_principal_storage_name": {
             "defaultValue": "[concat(parameters('deploy_namespace'), 'spfsstor', parameters('environment'), parameters('deployment_id'))]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Service Principal to be granted access to File Share Storage Account"
             }
@@ -69,7 +69,7 @@
         },
         "service_principal_datafactory_name": {
             "defaultValue": "[concat(parameters('deploy_namespace'), 'spadf', parameters('environment'), parameters('deployment_id'))]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Service Principal to be granted access to Data Factory"
             }
@@ -104,10 +104,10 @@
                         "objectId": "[parameters('keyvault_owner_object_id')]",
                         "permissions": {
                             "keys": [
-                                "All"
+                                "all"
                             ],
                             "secrets": [
-                                "All"
+                                "all"
                             ]
                         }
                     },
@@ -124,7 +124,7 @@
                 ],
                 "sku": {
                     "family": "A",
-                    "name": "Standard"
+                    "name": "standard"
                 }
             }
         },
