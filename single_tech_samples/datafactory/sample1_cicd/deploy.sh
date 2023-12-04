@@ -22,7 +22,7 @@ export GITHUB_PAT_TOKEN="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"
 export RESOURCE_GROUP_LOCATION='australiaeast'
 export AZURE_SUBSCRIPTION_ID='d3c00b3e-62a3-4d55-bed2-a0c29891af20'
 export RESOURCE_GROUP_NAME_PREFIX='mdwdo-azadf'
-export DEPLOYMENT_ID='pumpkinhat'
+export DEPLOYMENT_ID='043'
 export AZDO_PIPELINES_BRANCH_NAME='main'
 export MSYS_NO_PATHCONV=1
 
