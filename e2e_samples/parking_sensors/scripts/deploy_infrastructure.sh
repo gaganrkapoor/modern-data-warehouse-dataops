@@ -46,7 +46,7 @@ set -o xtrace # For debugging
 
 
 #az login --tenant "9e375c99-a8c8-49a8-8127-1ea23e715cad"
-export project='mdwdops'
+export PROJECT='mdwdops'
 export DEPLOYMENT_ID='04'
 export ENV_NAME='dev'
 export AZURE_LOCATION='australiaeast'
