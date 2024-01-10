@@ -44,6 +44,16 @@ set -o xtrace # For debugging
 #####################
 # DEPLOY ARM TEMPLATE
 
+
+#az login --tenant "9e375c99-a8c8-49a8-8127-1ea23e715cad"
+export project='mdwdops'
+export DEPLOYMENT_ID='04'
+export ENV_NAME='dev'
+export AZURE_LOCATION='australiaeast'
+export AZURE_SUBSCRIPTION_ID='d3c00b3e-62a3-4d55-bed2-a0c29891af20'
+export AZURESQL_SERVER_PASSWORD='Allity@123'
+export MSYS_NO_PATHCONV=1
+
 # Set account to where ARM template will be deployed to
 echo "Deploying to Subscription: $AZURE_SUBSCRIPTION_ID"
 az account set --subscription "$AZURE_SUBSCRIPTION_ID"
@@ -88,6 +98,8 @@ echo "Retrieving KeyVault information from the deployment."
 
 kv_name=$(echo "$arm_output" | jq -r '.properties.outputs.keyvault_name.value')
 kv_dns_name=https://${kv_name}.vault.azure.net/
+
+echo "key vault name is : $kv_name"
 
 # Store in KeyVault
 az keyvault secret set --vault-name "$kv_name" --name "kvUrl" --value "$kv_dns_name"
