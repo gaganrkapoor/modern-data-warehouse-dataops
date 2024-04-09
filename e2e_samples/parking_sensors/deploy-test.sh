@@ -21,6 +21,15 @@ set -o pipefail
 set -o nounset
 # set -o xtrace # For debugging
 
+export GITHUB_REPO="gaganrkapoor/modern-data-warehouse-dataops"
+export GITHUB_PAT_TOKEN="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"
+export RESOURCE_GROUP_LOCATION='australiaeast'
+export AZURE_SUBSCRIPTION_ID='d3c00b3e-62a3-4d55-bed2-a0c29891af20'
+export RESOURCE_GROUP_NAME_PREFIX='mdwdo-azadf'
+export DEPLOYMENT_ID='7123'
+export AZDO_PIPELINES_BRANCH_NAME='main'
+export MSYS_NO_PATHCONV=1
+
 az login --tenant "9e375c99-a8c8-49a8-8127-1ea23e715cad"
 
 
@@ -31,11 +40,36 @@ az login --tenant "9e375c99-a8c8-49a8-8127-1ea23e715cad"
 
 
 project=mdwdops # CONSTANT - this is prefixes to all resources of the Parking Sensor sample
+export GITHUB_REPO="gaganrkapoor/modern-data-warehouse-dataops"
 github_repo_url="https://github.com/$GITHUB_REPO"
 
-bash -c "./scripts/deploy_infrastructure.sh"
-
-
+echo "enter your choice to deploy"
+read choice
+if [ "$choice" = "1" ]
+then
+    echo "executing 1st step in deployment."
+    bash -c "../scripts/deploy_infrastructure_step1.sh"
+    echo "Completed 1st step in deployment."
+elif [ "$choice" = "2" ]
+then
+    cd scripts/
+    echo "configuring databricks in deployment."
+    bash -c "./scripts/configure_databricks.sh"
+    echo "Completed configuring databricks in deployment."
+elif [ "$choice" = "3" ]
+then
+    echo "Executing step 3 in deployment, which will deploy and configure ADF."
+    bash -c "./scripts/deploy_infrastructure_step3.sh"
+    echo "Completed Executing step 3 in deployment."
+elif [ $choice="4" ]
+then
+    cd scripts/
+    echo "Executing step 4 in deployment, which will deploy AZDO variables."
+    bash -c "./scripts/deploy_infrastructure_step4.sh"
+    echo "Completed Executing step 4 in deployment."
+else
+    echo "in the else block"
+fi
 
 
 print_style "DEPLOYMENT SUCCESSFUL

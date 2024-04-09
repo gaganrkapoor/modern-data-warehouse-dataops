@@ -1,4 +1,4 @@
-param project string = 'mdwdo'
+param project string = 'mdwdops'
 param env string = 'dev'
 param email_id string = 'support@domain.com'
 param location string = resourceGroup().location
@@ -67,7 +67,6 @@ module keyvault './modules/keyvault.bicep' = {
     datafactory
   ]
 }
-
 
 module appinsights './modules/appinsights.bicep' = {
   name: 'appinsights_deploy_${deployment_id}'

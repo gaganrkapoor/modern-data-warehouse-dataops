@@ -21,6 +21,19 @@ set -o pipefail
 set -o nounset
 # set -o xtrace # For debugging
 
+export GITHUB_REPO="gaganrkapoor/modern-data-warehouse-dataops"
+export GITHUB_PAT_TOKEN="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"
+export RESOURCE_GROUP_LOCATION='australiaeast'
+export AZURE_SUBSCRIPTION_ID='d3c00b3e-62a3-4d55-bed2-a0c29891af20'
+export RESOURCE_GROUP_NAME_PREFIX='mdwdo-azadf'
+export DEPLOYMENT_ID='7124'
+export AZDO_PIPELINES_BRANCH_NAME='main'
+export MSYS_NO_PATHCONV=1
+
+az login --tenant "9e375c99-a8c8-49a8-8127-1ea23e715cad"
+
+
+
 . ./scripts/common.sh
 . ./scripts/verify_prerequisites.sh
 . ./scripts/init_environment.sh
@@ -32,8 +45,10 @@ github_repo_url="https://github.com/$GITHUB_REPO"
 
 ###################
 # DEPLOY ALL FOR EACH ENVIRONMENT
+echo "Deploying to Subscription: $AZURE_SUBSCRIPTION_ID"
+az account set --subscription "$AZURE_SUBSCRIPTION_ID"
 
-for env_name in dev stg prod; do  # dev stg prod
+for env_name in dev; do  # dev stg prod
     PROJECT=$project \
     DEPLOYMENT_ID=$DEPLOYMENT_ID \
     ENV_NAME=$env_name \

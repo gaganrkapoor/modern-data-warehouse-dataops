@@ -5,6 +5,11 @@
     "autotermination_minutes": 30,
     "node_type_id": "Standard_DS3_v2",
     "driver_node_type_id": "Standard_DS3_v2",
+    "azure_attributes": {
+        "first_on_demand": 1,
+        "availability": "SPOT_WITH_FALLBACK_AZURE",
+        "spot_bid_max_price": -1
+    },
     "spark_env_vars": {
         "PYSPARK_PYTHON": "/databricks/python3/bin/python3",
         "MOUNT_DATA_PATH": "/mnt/datalake",

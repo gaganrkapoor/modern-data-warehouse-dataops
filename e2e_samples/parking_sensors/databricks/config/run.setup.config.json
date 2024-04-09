@@ -1,7 +1,7 @@
 {
     "run_name": "Setup workspace",
     "new_cluster": {
-        "spark_version": "6.6.x-scala2.11",
+        "spark_version": "10.4.x-scala2.12",
         "node_type_id": "Standard_DS3_v2",
         "num_workers": 1,
         "spark_env_vars": {
@@ -12,7 +12,7 @@
         }
     },
     "libraries": [],
-    "timeout_seconds": 3600,
+    "timeout_seconds": 1800,
     "notebook_task": {
         "notebook_path": "/notebooks/00_setup"
     }
