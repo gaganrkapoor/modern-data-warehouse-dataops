@@ -20,10 +20,7 @@ then
 
 elif [ "$choice" = "3" ]
 then
-    echo "executing 3"
-    tstjson='{"token_value": "dapi8b044a9ef3c5a5a45dc85faf19ee6cc6","token_info": {"token_id": "a103958085a89029d2a6067afcc5188c8fb8845ba1e138600bf8a182b6b3c25b","creation_time": 1707961870431,"expiry_time": 1715737870431,"comment": "testing"}}'
-    databricks_token=$(echo "$tstjson" | jq -r '.token_value')
-    echo $databricks_token
+    echo "executing 3"   
 fi
 
 
